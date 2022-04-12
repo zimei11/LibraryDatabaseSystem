@@ -1,5 +1,8 @@
 package com.book.servlet;
 
+import com.book.entity.User;
+import com.book.service.UserService;
+import com.book.service.impl.UserServiceImpl;
 import com.book.utils.ThymeleafUtil;
 import org.thymeleaf.context.Context;
 
@@ -13,16 +16,43 @@ import java.io.IOException;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet
 {
+    UserService service;
+    @Override
+    public void init() throws ServletException
+    {
+        service=new UserServiceImpl();
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("text/html;charset=utf-8");
-        ThymeleafUtil.process("auth-login.html",new Context(), resp.getWriter());
+
+        Context context=new Context();
+        if(req.getSession().getAttribute("login-failure")!=null)
+        {
+            context.setVariable("failure",true);
+            req.getSession().removeAttribute("login-failure");
+        }
+        ThymeleafUtil.process("auth-login.html", context, resp.getWriter());
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
+        resp.setCharacterEncoding("utf-8");
+        resp.setContentType("text/html;charset=utf-8");
+
+        String username=req.getParameter("username");
+        String password=req.getParameter("password");
+        if(service.auth(username,password, req.getSession()))
+        {
+            resp.getWriter().write("恭喜你登录成功了，真不瓤!");
+        }else
+        {
+            req.getSession().setAttribute("login-failure",new Object());
+            this.doGet(req,resp);
+        }
     }
 }
