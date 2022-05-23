@@ -1,5 +1,6 @@
 package com.book.servlet;
 
+import com.book.entity.User;
 import com.book.utils.ThymeleafUtil;
 import org.thymeleaf.context.Context;
 
@@ -16,6 +17,13 @@ public class IndexServiet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        ThymeleafUtil.process("index.html",new Context(), resp.getWriter());
+        resp.setCharacterEncoding("utf-8");
+        resp.setContentType("text/html;charset=utf-8");
+
+        Context context=new Context();
+        User user=(User)req.getSession().getAttribute("user");
+        context.setVariable("nickname",user.getNickname());
+        ThymeleafUtil.process("index.html",context,resp.getWriter());
+
     }
 }

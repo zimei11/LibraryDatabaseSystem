@@ -1,4 +1,4 @@
-package com.book.servlet;
+package com.book.servlet.auth;
 
 import com.book.entity.User;
 import com.book.service.UserService;
