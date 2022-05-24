@@ -22,4 +22,14 @@ public class BookServiceImpl implements BookService
             return mapper.getBorrowList();
         }
     }
+
+    @Override
+    public void returnBook(String id)
+    {
+        try(SqlSession sqlSession=MybatisUtil.getSession())
+        {
+            BookMapper mapper=sqlSession.getMapper((BookMapper.class));
+            mapper.updateBorrow(id);
+        }
+    }
 }

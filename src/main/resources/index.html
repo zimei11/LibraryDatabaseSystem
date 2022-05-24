@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>图书馆 | 新一代数字图书馆</title>
 
+    <link rel="icon" href="https://img.zimei.xyz/favicon.ico">
     <link rel="stylesheet" href="static/css/backend-plugin.min.css">
     <link rel="stylesheet" href="static/css/backend.css">
 </head>
@@ -577,7 +578,7 @@
                                         <td th:text="${borrow.getBorrow_time()}">2022.5.25</td>
                                         <td class="relative">
                                             <a class="action-btn" data-toggle="tooltip" data-placement="top" title=""
-                                               data-original-title="Edit" href="javascript:;">
+                                               data-original-title="Edit" th:href="'return-book?id='+${borrow.getId()}">
                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                      class="text-right" width="20" fill="none"
                                                      viewbox="0 0 24 24" stroke="currentColor">

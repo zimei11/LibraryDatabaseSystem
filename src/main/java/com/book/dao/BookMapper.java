@@ -1,10 +1,7 @@
 package com.book.dao;
 
 import com.book.entity.Borrow;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -19,6 +16,12 @@ public interface BookMapper
                     @Result(column = "return_time",property="return_time")
             }
     )
-    @Select("select * from borrow ,reader ,book where borrow.bid=book.bid and reader.mail=borrow.mail")
+    @Select("select * from borrow ,reader ,book where borrow.bid=book.bid and reader.mail=borrow.mail and return_time is null")
     List<Borrow> getBorrowList();
+
+    @Delete("delete from borrow where id = #{id} ")
+    void deleteBorrow(String id);
+
+    @Update("update borrow set return_time=now() where id = #{id}")
+    void updateBorrow(String id);
 }
