@@ -1,4 +1,4 @@
-package com.book.servlet;
+package com.book.servlet.pages;
 
 import com.book.entity.User;
 import com.book.utils.ThymeleafUtil;
@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/index")
-public class IndexServiet extends HttpServlet
+@WebServlet("/book")
+public class BookServlet extends HttpServlet
 {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
@@ -20,10 +20,10 @@ public class IndexServiet extends HttpServlet
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("text/html;charset=utf-8");
 
-        Context context=new Context();
+        Context context = new Context();
         User user=(User)req.getSession().getAttribute("user");
         context.setVariable("nickname",user.getNickname());
-        ThymeleafUtil.process("index.html",context,resp.getWriter());
+        ThymeleafUtil.process("book.html",context,resp.getWriter());
 
     }
 }
