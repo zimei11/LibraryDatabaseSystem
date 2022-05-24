@@ -571,10 +571,10 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr class="white-space-no-wrap">
-                                        <td>admin@qq.com</td>
-                                        <td>1</td>
-                                        <td>2022.5.25</td>
+                                    <tr class="white-space-no-wrap" th:each="borrow:${borrow_list}">
+                                        <td th:text="${borrow.getMail()}">admin@qq.com</td>
+                                        <td th:text="'#'+${borrow.getBook_id()}">1</td>
+                                        <td th:text="${borrow.getBorrow_time()}">2022.5.25</td>
                                         <td class="relative">
                                             <a class="action-btn" data-toggle="tooltip" data-placement="top" title=""
                                                data-original-title="Edit" href="javascript:;">

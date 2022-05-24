@@ -9,7 +9,7 @@ public class Borrow
 {
     int id;
     String mail;
-    int bid;
+    int book_id;
     Date borrow_time;
     Date return_time;
 }
