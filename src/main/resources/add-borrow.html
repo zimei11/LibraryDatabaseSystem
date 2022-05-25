@@ -235,43 +235,43 @@
                         <div class="card-body">
                             <div class="collapse" id="form-element-6">
                                 <div class="card"><kbd class="bg-dark"><pre id="form-input" class="text-white"><code>
-&#x3C;form&#x3E;
-   &#x3C;div class=&#x22;form-group&#x22;&#x3E;
-      &#x3C;label for=&#x22;exampleInputText1&#x22;&#x3E;Input Text &#x3C;/label&#x3E;
-      &#x3C;input type=&#x22;text&#x22; class=&#x22;form-control&#x22; id=&#x22;exampleInputText1&#x22; value=&#x22;Mark Tech&#x22;
-         placeholder=&#x22;Enter Name&#x22;&#x3E;
-   &#x3C;/div&#x3E;
-   &#x3C;div class=&#x22;form-group&#x22;&#x3E;
-      &#x3C;label for=&#x22;exampleInputEmail2&#x22;&#x3E;Email Input&#x3C;/label&#x3E;
-      &#x3C;input type=&#x22;email&#x22; class=&#x22;form-control&#x22; id=&#x22;exampleInputEmail2&#x22; value=&#x22;<a href="javascript:;" class="__cf_email__" data-cfemail="ec818d9e87b8898f84ac8b818d8580c28f8381">[email&#160;protected]</a>&#x22;
-         placeholder=&#x22;Enter Email&#x22;&#x3E;
-   &#x3C;/div&#x3E;
-   &#x3C;div class=&#x22;form-group&#x22;&#x3E;
-      &#x3C;label for=&#x22;exampleInputNumber3&#x22;&#x3E;Number Input&#x3C;/label&#x3E;
-      &#x3C;input type=&#x22;number&#x22; class=&#x22;form-control&#x22; id=&#x22;exampleInputNumber3&#x22; value=&#x22;123456&#x22;&#x3E;
-   &#x3C;/div&#x3E;
-   &#x3C;div class=&#x22;form-group&#x22;&#x3E;
-      &#x3C;label for=&#x22;exampleInputPassword4&#x22;&#x3E;Password Input&#x3C;/label&#x3E;
-      &#x3C;input type=&#x22;password&#x22; class=&#x22;form-control&#x22; id=&#x22;exampleInputPassword4&#x22; value=&#x22;example123&#x22;
-         placeholder=&#x22;Enter Password&#x22;&#x3E;
-   &#x3C;/div&#x3E;
-   &#x3C;button type=&#x22;submit&#x22; class=&#x22;btn btn-primary&#x22;&#x3E;Submit&#x3C;/button&#x3E;
-   &#x3C;button type=&#x22;submit&#x22; class=&#x22;btn bg-danger&#x22;&#x3E;Cancel&#x3C;/button&#x3E;
-&#x3C;/form&#x3E;
+<!--&#x3C;form&#x3E;-->
+<!--   &#x3C;div class=&#x22;form-group&#x22;&#x3E;-->
+<!--      &#x3C;label for=&#x22;exampleInputText1&#x22;&#x3E;Input Text &#x3C;/label&#x3E;-->
+<!--      &#x3C;input type=&#x22;text&#x22; class=&#x22;form-control&#x22; id=&#x22;exampleInputText1&#x22; value=&#x22;Mark Tech&#x22;-->
+<!--         placeholder=&#x22;Enter Name&#x22;&#x3E;-->
+<!--   &#x3C;/div&#x3E;-->
+<!--   &#x3C;div class=&#x22;form-group&#x22;&#x3E;-->
+<!--      &#x3C;label for=&#x22;exampleInputEmail2&#x22;&#x3E;Email Input&#x3C;/label&#x3E;-->
+<!--      &#x3C;input type=&#x22;email&#x22; class=&#x22;form-control&#x22; id=&#x22;exampleInputEmail2&#x22; value=&#x22;<a href="javascript:;" class="__cf_email__" data-cfemail="ec818d9e87b8898f84ac8b818d8580c28f8381">[email&#160;protected]</a>&#x22;-->
+<!--         placeholder=&#x22;Enter Email&#x22;&#x3E;-->
+<!--   &#x3C;/div&#x3E;-->
+<!--   &#x3C;div class=&#x22;form-group&#x22;&#x3E;-->
+<!--      &#x3C;label for=&#x22;exampleInputNumber3&#x22;&#x3E;Number Input&#x3C;/label&#x3E;-->
+<!--      &#x3C;input type=&#x22;number&#x22; class=&#x22;form-control&#x22; id=&#x22;exampleInputNumber3&#x22; value=&#x22;123456&#x22;&#x3E;-->
+<!--   &#x3C;/div&#x3E;-->
+<!--   &#x3C;div class=&#x22;form-group&#x22;&#x3E;-->
+<!--      &#x3C;label for=&#x22;exampleInputPassword4&#x22;&#x3E;Password Input&#x3C;/label&#x3E;-->
+<!--      &#x3C;input type=&#x22;password&#x22; class=&#x22;form-control&#x22; id=&#x22;exampleInputPassword4&#x22; value=&#x22;example123&#x22;-->
+<!--         placeholder=&#x22;Enter Password&#x22;&#x3E;-->
+<!--   &#x3C;/div&#x3E;-->
+<!--   &#x3C;button type=&#x22;submit&#x22; class=&#x22;btn btn-primary&#x22;&#x3E;Submit&#x3C;/button&#x3E;-->
+<!--   &#x3C;button type=&#x22;submit&#x22; class=&#x22;btn bg-danger&#x22;&#x3E;Cancel&#x3C;/button&#x3E;-->
+<!--&#x3C;/form&#x3E;-->
 </code></pre></kbd></div>
                             </div>
-                            <form>
+                            <form method="post" action="add-borrow">
                                 <div class="form-group">
                                     <label for="exampleInputNumber3">书籍编号</label>
-                                    <input type="number" class="form-control" id="exampleInputNumber3" value="">
+                                    <input type="number" class="form-control" id="exampleInputNumber3" value="" name="book">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail2">读者邮箱</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail2" value="" placeholder="输入邮箱">
+                                    <input type="email" class="form-control" id="exampleInputEmail2" value="" placeholder="输入邮箱" name="reader">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary mr-2">提交</button>
-                                <button type="submit" class="btn bg-danger">取消</button>
+                                <a type="submit" class="btn bg-danger" href="index">取消</a>
                             </form>
                         </div>
                     </div>

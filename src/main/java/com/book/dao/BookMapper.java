@@ -3,6 +3,7 @@ package com.book.dao;
 import com.book.entity.Borrow;
 import org.apache.ibatis.annotations.*;
 
+import java.awt.print.Book;
 import java.util.List;
 
 public interface BookMapper
@@ -18,10 +19,14 @@ public interface BookMapper
     )
     @Select("select * from borrow ,reader ,book where borrow.bid=book.bid and reader.mail=borrow.mail and return_time is null")
     List<Borrow> getBorrowList();
-
+    @Insert("insert into borrow(id,mail,bid,borrow_time,return_time) values(null,#{mail},#{book_id},now(),null)")
+    void addBorrow(@Param("mail") String mail,@Param("book_id") int book_id);
     @Delete("delete from borrow where id = #{id} ")
     void deleteBorrow(String id);
 
     @Update("update borrow set return_time=now() where id = #{id}")
     void updateBorrow(String id);
+
+    @Select("select * from book")
+    List<Book> getBookList();
 }

@@ -9,7 +9,10 @@ import com.book.utils.MybatisUtil;
 import org.apache.ibatis.session.SqlSession;
 
 import javax.servlet.http.HttpSession;
+import java.awt.print.Book;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class BookServiceImpl implements BookService
 {
@@ -32,4 +35,29 @@ public class BookServiceImpl implements BookService
             mapper.updateBorrow(id);
         }
     }
+
+    @Override
+    public void addBorrow(String mail,int book_id)
+    {
+        try(SqlSession sqlSession=MybatisUtil.getSession())
+        {
+            BookMapper mapper=sqlSession.getMapper((BookMapper.class));
+            mapper.addBorrow(mail,book_id);
+        }
+    }
+
+    //看哪本书被节约了，过滤一下
+//    @Override
+//    public List<Book> getActiveBookList()
+//    {
+//        Set<Integer> set=new HashSet<>();
+//        this.getBorrowList().forEach(borrow->set.add(borrow.getBook_id()));
+//        try(SqlSession sqlSession=MybatisUtil.getSession())
+//        {
+//            BookMapper mapper=sqlSession.getMapper((BookMapper.class));
+//            mapper.getBookList()
+//                    .stream()
+//                    .filter(book->!set.contains(book.get))
+//        }
+//    }
 }
