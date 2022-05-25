@@ -1,10 +1,7 @@
-package com.book.servlet.pages;
+package com.book.servlet.manage;
 
-import com.book.entity.User;
 import com.book.service.BookService;
 import com.book.service.impl.BookServiceImpl;
-import com.book.utils.ThymeleafUtil;
-import org.thymeleaf.context.Context;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/book")
-public class BookServlet extends HttpServlet
+@WebServlet("/delete-book")
+public class DeleteBookServlet extends HttpServlet
 {
     BookService service;
 
@@ -23,17 +20,15 @@ public class BookServlet extends HttpServlet
     {
         service=new BookServiceImpl();
     }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("text/html;charset=utf-8");
 
-        Context context = new Context();
-        User user=(User)req.getSession().getAttribute("user");
-        context.setVariable("nickname",user.getNickname());
-        context.setVariable("book_list",service.getBookList());
-        ThymeleafUtil.process("book.html",context,resp.getWriter());
-
+        int bid=Integer.parseInt(req.getParameter("bid"));
+        service.deleteBook(bid);
+        resp.sendRedirect("book");
     }
 }

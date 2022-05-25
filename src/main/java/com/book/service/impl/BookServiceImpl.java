@@ -4,12 +4,12 @@ import com.book.dao.BookMapper;
 import com.book.dao.UserMapper;
 import com.book.entity.Borrow;
 import com.book.entity.User;
+import com.book.entity.Book;
 import com.book.service.BookService;
 import com.book.utils.MybatisUtil;
 import org.apache.ibatis.session.SqlSession;
 
 import javax.servlet.http.HttpSession;
-import java.awt.print.Book;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -41,8 +41,28 @@ public class BookServiceImpl implements BookService
     {
         try(SqlSession sqlSession=MybatisUtil.getSession())
         {
-            BookMapper mapper=sqlSession.getMapper((BookMapper.class));
+            BookMapper mapper=sqlSession.getMapper(BookMapper.class);
             mapper.addBorrow(mail,book_id);
+        }
+    }
+
+    @Override
+    public List<Book> getBookList()
+    {
+        try(SqlSession sqlSession=MybatisUtil.getSession())
+        {
+            BookMapper mapper=sqlSession.getMapper((BookMapper.class));
+            return mapper.getBookList();
+        }
+    }
+
+    @Override
+    public void deleteBook(int bid)
+    {
+        try(SqlSession sqlSession=MybatisUtil.getSession())
+        {
+            BookMapper mapper=sqlSession.getMapper((BookMapper.class));
+            mapper.deleteBook(bid);
         }
     }
 

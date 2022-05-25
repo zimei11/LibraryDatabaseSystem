@@ -274,62 +274,58 @@
                                     <div class="table-responsive">
                                         <table class="table data-table mb-0">
                                             <thead class="table-color-heading">
-                                            <tr class="text-light">
-                                                <th scope="col" class="w-01 pr-0">
-                                                    <div
-                                                            class="d-flex justify-content-start align-items-end mb-1">
-                                                        <div
-                                                                class="custom-control custom-checkbox custom-control-inline">
-                                                            <input type="checkbox"
-                                                                   class="custom-control-input m-0"
-                                                                   id="customCheck">
-                                                            <label class="custom-control-label"
-                                                                   for="customCheck"></label>
-                                                        </div>
-                                                    </div>
-                                                </th>
+                                            <tr class="text-light" >
+
                                                 <th scope="col">
-                                                    <label class="text-muted m-0">ID</label>
+                                                    <label class="text-muted m-0">编号</label>
                                                 </th>
                                                 <th scope="col" class="dates">
-                                                    <label class="text-muted mb-0">Date</label>
+                                                    <label class="text-muted mb-0">出版时间</label>
                                                 </th>
                                                 <th scope="col">
-                                                    <label class="text-muted mb-0">Customer</label>
+                                                    <label class="text-muted mb-0">书籍名字</label>
                                                 </th>
                                                 <th scope="col" class="text-right">
-                                                    <label class="text-muted mb-0">Total</label>
+                                                    <label class="text-muted mb-0">书籍ISBN</label>
+                                                </th>
+
+                                                <th scope="col">
+                                                    <label class="text-muted mb-0">书籍作者</label>
                                                 </th>
                                                 <th scope="col">
-                                                    <label class="text-muted mb-0">Status</label>
+                                                    <label class="text-muted mb-0">书架</label>
+                                                </th>
+                                                <th scope="col">
+                                                    <label class="text-muted mb-0">状态</label>
                                                 </th>
                                                 <th scope="col" class="text-right">
-                                                    <span class="text-muted">Action</span>
+                                                    <span class="text-muted">删除</span>
                                                 </th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr class="white-space-no-wrap">
-                                                <td class="pr-0">
-                                                    <div
-                                                            class="custom-control custom-checkbox custom-control-inline">
-                                                        <input type="checkbox" class="custom-control-input m-0"
-                                                               id="customCheck1">
-                                                        <label class="custom-control-label"
-                                                               for="customCheck1"></label>
-                                                    </div>
+                                            <tr th:each="book:${book_list}" class="white-space-no-wrap">
+
+                                                <td th:text="'#'+${book.getBook_id()}">
+                                                    1
                                                 </td>
-                                                <td>
-                                                    OR-325548
+                                                <td th:text="${book.getPublic_time()}">
+                                                    01 Jan 2021
                                                 </td>
-                                                <td>01 Jan 2021</td>
-                                                <td>
-                                                    Jack Ryan
+                                                <td th:text="${book.getName()}">
+                                                    水浒传
                                                 </td>
-                                                <td class="text-right">
-                                                    $104.98
+                                                <td  th:text="${book.getISBN()}" class="text-right">
+                                                    341232-2132141
                                                 </td>
-                                                <td>
+
+                                                <td  th:text="${book.getAuthor()}">
+                                                    施耐庵
+                                                </td>
+                                                <td  th:text="${book.getBookshelf_id()}">
+                                                    #1211
+                                                </td>
+                                                <td th:unless="${book.getState()}">
                                                     <p
                                                             class="mb-0 text-success font-weight-bold d-flex justify-content-start align-items-center">
                                                         <small><svg class="mr-2"
@@ -338,126 +334,10 @@
                                                             <circle cx="12" cy="12" r="8" fill="#3cb72c">
                                                             </circle>
                                                         </svg>
-                                                        </small>Completed
+                                                        </small>可借阅
                                                     </p>
                                                 </td>
-                                                <td>
-                                                    <div class="d-flex justify-content-end align-items-center">
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="View"
-                                                           href="order-details.html">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary mx-4" width="20"
-                                                                 fill="none" viewbox="0 0 24 24"
-                                                                 stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="Edit" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary" width="20" fill="none"
-                                                                 viewbox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="white-space-no-wrap">
-                                                <td class="pr-0">
-                                                    <div
-                                                            class="custom-control custom-checkbox custom-control-inline">
-                                                        <input type="checkbox" class="custom-control-input m-0"
-                                                               id="customCheck2">
-                                                        <label class="custom-control-label"
-                                                               for="customCheck2"></label>
-                                                    </div>
-                                                </td>
-                                                <td class="">
-                                                    OR-223544
-                                                </td>
-                                                <td>02 Jan 2021</td>
-                                                <td>
-                                                    Matt Damon
-                                                </td>
-                                                <td class="text-right">
-                                                    $99.00
-                                                </td>
-                                                <td>
-                                                    <p
-                                                            class="mb-0 text-success font-weight-bold d-flex justify-content-start align-items-center">
-                                                        <small><svg class="mr-2"
-                                                                    xmlns="http://www.w3.org/2000/svg" width="18"
-                                                                    viewbox="0 0 24 24" fill="none">
-                                                            <circle cx="12" cy="12" r="8" fill="#3cb72c">
-                                                            </circle>
-                                                        </svg>
-                                                        </small>Completed
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex justify-content-end align-items-center">
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="View"
-                                                           href="order-details.html">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary mx-4" width="20"
-                                                                 fill="none" viewbox="0 0 24 24"
-                                                                 stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="Edit" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary" width="20" fill="none"
-                                                                 viewbox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="white-space-no-wrap">
-                                                <td class="pr-0">
-                                                    <div
-                                                            class="custom-control custom-checkbox custom-control-inline">
-                                                        <input type="checkbox" class="custom-control-input m-0"
-                                                               id="customCheck3">
-                                                        <label class="custom-control-label"
-                                                               for="customCheck3"></label>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    OR-125623
-                                                </td>
-                                                <td>02 Jan 2021</td>
-                                                <td>
-                                                    Caitriona Balfe
-                                                </td>
-                                                <td class="text-right">
-                                                    $249.49
-                                                </td>
-                                                <td>
+                                                <td  th:if="${book.getState()}">
                                                     <p
                                                             class="mb-0 text-warning font-weight-bold d-flex justify-content-start align-items-center">
                                                         <small><svg class="mr-2"
@@ -466,29 +346,14 @@
                                                             <circle cx="12" cy="12" r="8" fill="#db7e06">
                                                             </circle>
                                                         </svg>
-                                                        </small>Pending
+                                                        </small>借阅中
                                                     </p>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-end align-items-center">
+
                                                         <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="View"
-                                                           href="order-details.html">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary mx-4" width="20"
-                                                                 fill="none" viewbox="0 0 24 24"
-                                                                 stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="Edit" href="#">
+                                                           title="" data-original-title="Edit" th:href="'delete-book?bid='+${book.getBook_id()}">
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                  class="text-secondary" width="20" fill="none"
                                                                  viewbox="0 0 24 24" stroke="currentColor">
@@ -501,454 +366,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr class="white-space-no-wrap">
-                                                <td class="pr-0">
-                                                    <div
-                                                            class="custom-control custom-checkbox custom-control-inline">
-                                                        <input type="checkbox" class="custom-control-input m-0"
-                                                               id="customCheck4">
-                                                        <label class="custom-control-label"
-                                                               for="customCheck4"></label>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    OR-662210
-                                                </td>
-                                                <td>02 Jan 2021</td>
-                                                <td>
-                                                    Josh Lucas
-                                                </td>
-                                                <td class="text-right">
-                                                    $9.99
-                                                </td>
-                                                <td>
-                                                    <p
-                                                            class="mb-0 text-success font-weight-bold d-flex justify-content-start align-items-center">
-                                                        <small><svg class="mr-2"
-                                                                    xmlns="http://www.w3.org/2000/svg" width="18"
-                                                                    viewbox="0 0 24 24" fill="none">
-                                                            <circle cx="12" cy="12" r="8" fill="#3cb72c">
-                                                            </circle>
-                                                        </svg>
-                                                        </small>Completed
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex justify-content-end align-items-center">
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="View"
-                                                           href="order-details.html">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary mx-4" width="20"
-                                                                 fill="none" viewbox="0 0 24 24"
-                                                                 stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="Edit" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary" width="20" fill="none"
-                                                                 viewbox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="white-space-no-wrap">
-                                                <td class="pr-0">
-                                                    <div
-                                                            class="custom-control custom-checkbox custom-control-inline">
-                                                        <input type="checkbox" class="custom-control-input m-0"
-                                                               id="customCheck5">
-                                                        <label class="custom-control-label"
-                                                               for="customCheck5"></label>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    OR-901020
-                                                </td>
-                                                <td>03 Jan 2021</td>
-                                                <td>
-                                                    Jon Bernthal
-                                                </td>
-                                                <td class="text-right">
-                                                    $90.49
-                                                </td>
-                                                <td>
-                                                    <p
-                                                            class="mb-0 text-danger font-weight-bold d-flex justify-content-start align-items-center">
-                                                        <small><svg class="mr-2"
-                                                                    xmlns="http://www.w3.org/2000/svg" width="18"
-                                                                    viewbox="0 0 24 24" fill="none">
-                                                            <circle cx="12" cy="12" r="8" fill="#F42B3D">
-                                                            </circle>
-                                                        </svg>
-                                                        </small>Cancelled
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex justify-content-end align-items-center">
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="View"
-                                                           href="order-details.html">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary mx-4" width="20"
-                                                                 fill="none" viewbox="0 0 24 24"
-                                                                 stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="Edit" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary" width="20" fill="none"
-                                                                 viewbox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="white-space-no-wrap">
-                                                <td class="pr-0">
-                                                    <div
-                                                            class="custom-control custom-checkbox custom-control-inline">
-                                                        <input type="checkbox" class="custom-control-input m-0"
-                                                               id="customCheck6">
-                                                        <label class="custom-control-label"
-                                                               for="customCheck6"></label>
-                                                    </div>
-                                                </td>
-                                                <td class="">
-                                                    OR-902210
-                                                </td>
-                                                <td>05 Jan 2021</td>
-                                                <td>
-                                                    Noah Jupe
-                                                </td>
-                                                <td class="text-right">
-                                                    $39.99
-                                                </td>
-                                                <td>
-                                                    <p
-                                                            class="mb-0 text-success font-weight-bold d-flex justify-content-start align-items-center">
-                                                        <small><svg class="mr-2"
-                                                                    xmlns="http://www.w3.org/2000/svg" width="18"
-                                                                    viewbox="0 0 24 24" fill="none">
-                                                            <circle cx="12" cy="12" r="8" fill="#3cb72c">
-                                                            </circle>
-                                                        </svg>
-                                                        </small>Completed
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex justify-content-end align-items-center">
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="View"
-                                                           href="order-details.html">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary mx-4" width="20"
-                                                                 fill="none" viewbox="0 0 24 24"
-                                                                 stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="Edit" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary" width="20" fill="none"
-                                                                 viewbox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="white-space-no-wrap">
-                                                <td class="pr-0">
-                                                    <div
-                                                            class="custom-control custom-checkbox custom-control-inline">
-                                                        <input type="checkbox" class="custom-control-input m-0"
-                                                               id="customCheck7">
-                                                        <label class="custom-control-label"
-                                                               for="customCheck7"></label>
-                                                    </div>
-                                                </td>
-                                                <td class="">
-                                                    OR-902559
-                                                </td>
-                                                <td>06 Jan 2021</td>
-                                                <td>
-                                                    Tracy Letts
-                                                </td>
-                                                <td class="text-right">
-                                                    $19.22
-                                                </td>
-                                                <td>
-                                                    <p
-                                                            class="mb-0 text-warning font-weight-bold d-flex justify-content-start align-items-center">
-                                                        <small><svg class="mr-2"
-                                                                    xmlns="http://www.w3.org/2000/svg" width="18"
-                                                                    viewbox="0 0 24 24" fill="none">
-                                                            <circle cx="12" cy="12" r="8" fill="#db7e06">
-                                                            </circle>
-                                                        </svg>
-                                                        </small>Pending
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex justify-content-end align-items-center">
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="View"
-                                                           href="order-details.html">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary mx-4" width="20"
-                                                                 fill="none" viewbox="0 0 24 24"
-                                                                 stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="Edit" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary" width="20" fill="none"
-                                                                 viewbox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="white-space-no-wrap">
-                                                <td class="pr-0">
-                                                    <div
-                                                            class="custom-control custom-checkbox custom-control-inline">
-                                                        <input type="checkbox" class="custom-control-input m-0"
-                                                               id="customCheck8">
-                                                        <label class="custom-control-label"
-                                                               for="customCheck8"></label>
-                                                    </div>
-                                                </td>
-                                                <td class="">
-                                                    OR-253524
-                                                </td>
-                                                <td>09 Jan 2021</td>
-                                                <td>
-                                                    Ray McKinnon
-                                                </td>
-                                                <td class="text-right">
-                                                    $102.9
-                                                </td>
-                                                <td>
-                                                    <p
-                                                            class="mb-0 text-danger font-weight-bold d-flex justify-content-start align-items-center">
-                                                        <small><svg class="mr-2"
-                                                                    xmlns="http://www.w3.org/2000/svg" width="18"
-                                                                    viewbox="0 0 24 24" fill="none">
-                                                            <circle cx="12" cy="12" r="8" fill="#F42B3D">
-                                                            </circle>
-                                                        </svg>
-                                                        </small>Cancelled
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex justify-content-end align-items-center">
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="View"
-                                                           href="order-details.html">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary mx-4" width="20"
-                                                                 fill="none" viewbox="0 0 24 24"
-                                                                 stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="Edit" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary" width="20" fill="none"
-                                                                 viewbox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="white-space-no-wrap">
-                                                <td class="pr-0">
-                                                    <div
-                                                            class="custom-control custom-checkbox custom-control-inline">
-                                                        <input type="checkbox" class="custom-control-input m-0"
-                                                               id="customCheck9">
-                                                        <label class="custom-control-label"
-                                                               for="customCheck9"></label>
-                                                    </div>
-                                                </td>
-                                                <td class="">
-                                                    OR-902559
-                                                </td>
-                                                <td>10 Jan 2021</td>
-                                                <td>
-                                                    Remo Girone
-                                                </td>
-                                                <td class="text-right">
-                                                    $13.99
-                                                </td>
-                                                <td>
-                                                    <p
-                                                            class="mb-0 text-success font-weight-bold d-flex justify-content-start align-items-center">
-                                                        <small><svg class="mr-2"
-                                                                    xmlns="http://www.w3.org/2000/svg" width="18"
-                                                                    viewbox="0 0 24 24" fill="none">
-                                                            <circle cx="12" cy="12" r="8" fill="#3cb72c">
-                                                            </circle>
-                                                        </svg>
-                                                        </small>Completed
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex justify-content-end align-items-center">
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="View"
-                                                           href="order-details.html">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary mx-4" width="20"
-                                                                 fill="none" viewbox="0 0 24 24"
-                                                                 stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="Edit" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary" width="20" fill="none"
-                                                                 viewbox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="white-space-no-wrap">
-                                                <td class="pr-0">
-                                                    <div
-                                                            class="custom-control custom-checkbox custom-control-inline">
-                                                        <input type="checkbox" class="custom-control-input m-0"
-                                                               id="customCheck10">
-                                                        <label class="custom-control-label"
-                                                               for="customCheck10"></label>
-                                                    </div>
-                                                </td>
-                                                <td class="">
-                                                    OR-302240
-                                                </td>
-                                                <td>12 Jan 2021</td>
-                                                <td>
-                                                    Jack McMullen
-                                                </td>
-                                                <td class="text-right">
-                                                    $25.99
-                                                </td>
-                                                <td>
-                                                    <p
-                                                            class="mb-0 text-success font-weight-bold d-flex justify-content-start align-items-center">
-                                                        <small><svg class="mr-2"
-                                                                    xmlns="http://www.w3.org/2000/svg" width="18"
-                                                                    viewbox="0 0 24 24" fill="none">
-                                                            <circle cx="12" cy="12" r="8" fill="#3cb72c">
-                                                            </circle>
-                                                        </svg>
-                                                        </small>Completed
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex justify-content-end align-items-center">
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="View"
-                                                           href="order-details.html">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary mx-4" width="20"
-                                                                 fill="none" viewbox="0 0 24 24"
-                                                                 stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="Edit" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary" width="20" fill="none"
-                                                                 viewbox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round"
-                                                                      stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
-                                                                </path>
-                                                            </svg>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+
                                             </tbody>
                                         </table>
                                     </div>

@@ -1,9 +1,9 @@
 package com.book.dao;
 
 import com.book.entity.Borrow;
+import  com.book.entity.Book;
 import org.apache.ibatis.annotations.*;
 
-import java.awt.print.Book;
 import java.util.List;
 
 public interface BookMapper
@@ -27,6 +27,15 @@ public interface BookMapper
     @Update("update borrow set return_time=now() where id = #{id}")
     void updateBorrow(String id);
 
+    @Results(
+            {
+                    @Result(column = "bid",property="book_id"),
+            }
+    )
     @Select("select * from book")
     List<Book> getBookList();
+
+    @Delete("delete from book where bid=#{bid}")
+    void deleteBook(int bid);
+
 }
