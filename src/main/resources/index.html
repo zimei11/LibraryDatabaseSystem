@@ -232,54 +232,27 @@
                         </div>
                         <div class="card-body-list">
                             <ul class="list-style-3 mb-0">
-                                <li class="p-3 list-item d-flex justify-content-start align-items-center">
-                                    <div class="avatar">
-                                        <img class="avatar avatar-img avatar-60 rounded" src="static/picture/17.jpg"
-                                             alt="1.jpg">
-                                    </div>
-                                    <div class="list-style-detail ml-3 mr-2">
-                                        <p class="mb-0">Rockerz Bluetooth Headset</p>
-                                    </div>
-                                    <div class="list-style-action d-flex justify-content-end ml-auto">
-                                        <h6 class="font-weight-bold">$1,056</h6>
-                                    </div>
-                                </li>
-                                <li class="p-3 list-item d-flex justify-content-start align-items-center">
-                                    <div class="avatar">
-                                        <img class="avatar avatar-img avatar-60 rounded" src="static/picture/21.jpg"
-                                             alt="2.jpg">
-                                    </div>
-                                    <div class="list-style-detail ml-3 mr-2">
-                                        <p class="mb-0">Wifi Security Camera</p>
-                                    </div>
-                                    <div class="list-style-action d-flex justify-content-end ml-auto">
-                                        <h6 class="font-weight-bold">$1,799</h6>
-                                    </div>
-                                </li>
-                                <li class="p-3 list-item d-flex justify-content-start align-items-center">
-                                    <div class="avatar">
-                                        <img class="avatar avatar-img avatar-60 rounded" src="static/picture/13.jpg"
-                                             alt="3.jpg">
-                                    </div>
-                                    <div class="list-style-detail ml-3 mr-2">
-                                        <p class="mb-0">Stone Bluetooth Speaker</p>
-                                    </div>
-                                    <div class="list-style-action d-flex justify-content-end ml-auto">
-                                        <h6 class="font-weight-bold">$1,099</h6>
-                                    </div>
-                                </li>
-                                <li class="p-3 list-item d-flex justify-content-start align-items-center">
-                                    <div class="avatar">
-                                        <img class="avatar avatar-img avatar-60 rounded" src="static/picture/4.jpg"
-                                             alt="4.jpg">
-                                    </div>
-                                    <div class="list-style-detail ml-3 mr-2">
-                                        <p class="mb-0">Ryzen 5 Hexa Core 5600H</p>
-                                    </div>
-                                    <div class="list-style-action d-flex justify-content-end ml-auto">
-                                        <h6 class="font-weight-bold">$9,999</h6>
-                                    </div>
-                                </li>
+
+                                <table class="table mb-0">
+                                    <thead class="table-color-heading">
+                                    <tr class="text-secondary">
+                                        <th scope="col">ISBN</th>
+                                        <th scope="col">书名</th>
+                                        <th scope="col">在读人数</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="white-space-no-wrap" th:each="rank:${book_rank}">
+                                        <td th:text="'#'+${rank.getISBN()}">4342-342332</td>
+                                        <td th:text="${rank.getName()}">水浒</td>
+                                        <td th:text="${rank.getCnt()}">23</td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+
                             </ul>
                         </div>
                     </div>

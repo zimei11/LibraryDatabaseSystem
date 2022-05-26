@@ -2,7 +2,9 @@ package com.book.servlet.pages;
 
 import com.book.entity.User;
 import com.book.service.BookService;
+import com.book.service.OtherService;
 import com.book.service.impl.BookServiceImpl;
+import com.book.service.impl.OtherServiceImpl;
 import com.book.utils.ThymeleafUtil;
 import org.thymeleaf.context.Context;
 
@@ -14,14 +16,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/index")
-public class IndexServiet extends HttpServlet
+public class IndexServlet extends HttpServlet
 {
     BookService service;
+    OtherService service1;
 
     @Override
     public void init() throws ServletException
     {
         service=new BookServiceImpl();
+        service1=new OtherServiceImpl();
     }
 
     @Override
@@ -34,6 +38,7 @@ public class IndexServiet extends HttpServlet
         User user=(User)req.getSession().getAttribute("user");
         context.setVariable("nickname",user.getNickname());
         context.setVariable("borrow_list",service.getBorrowList());
+        context.setVariable("book_rank",service1.getViewList());
         ThymeleafUtil.process("index.html",context,resp.getWriter());
 
     }

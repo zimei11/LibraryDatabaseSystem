@@ -27,6 +27,7 @@ public interface BookMapper
     @Update("update borrow set return_time=now() where id = #{id}")
     void updateBorrow(String id);
 
+    //得到图书列表
     @Results(
             {
                     @Result(column = "bid",property="book_id"),
