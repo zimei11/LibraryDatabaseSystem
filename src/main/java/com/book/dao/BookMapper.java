@@ -4,6 +4,7 @@ import com.book.entity.Borrow;
 import  com.book.entity.Book;
 import org.apache.ibatis.annotations.*;
 
+import java.util.Date;
 import java.util.List;
 
 public interface BookMapper
@@ -39,4 +40,10 @@ public interface BookMapper
     @Delete("delete from book where bid=#{bid}")
     void deleteBook(int bid);
 
+    @Insert("insert into book values(null,#{name},#{ISBN},,#{type},#{author},#{publisher},#{public_time}"+
+            ",#{price},now(),#{bookshelf_id},0")
+    void addBook(@Param("name") String name, @Param("ISBN") String ISBN,
+                 @Param("type") String type, @Param("author") String author,
+                 @Param("publisher") String publisher, @Param("public_time") String public_time,
+                 @Param("price") float price, @Param("bookshelf_id") int bookshelf_id);
 }

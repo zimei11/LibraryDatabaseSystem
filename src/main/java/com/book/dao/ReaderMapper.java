@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
-public interface ReaderMappper
+public interface ReaderMapper
 {
     @Select("select * from reader")
     List<Reader> getReaderList();

@@ -10,6 +10,7 @@ import com.book.utils.MybatisUtil;
 import org.apache.ibatis.session.SqlSession;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -63,6 +64,16 @@ public class BookServiceImpl implements BookService
         {
             BookMapper mapper=sqlSession.getMapper((BookMapper.class));
             mapper.deleteBook(bid);
+        }
+    }
+
+    @Override
+    public void addBook(String name, String ISBN, String type, String author, String publisher, String public_time, float price, int bookshelf_id)
+    {
+        try(SqlSession sqlSession=MybatisUtil.getSession())
+        {
+            BookMapper mapper=sqlSession.getMapper((BookMapper.class));
+            mapper.addBook(name, ISBN, type, author, publisher, public_time, price, bookshelf_id);
         }
     }
 

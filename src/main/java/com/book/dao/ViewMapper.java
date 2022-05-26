@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface ViewMapper
 {
-    @Select("select * from book_rank_list")
+    @Select("select * from book_rank_list order by cnt desc limit 5;")
     List<ViewRank> getViewList();
 }
