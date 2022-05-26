@@ -279,18 +279,19 @@
                                                 <th scope="col">
                                                     <label class="text-muted m-0">编号</label>
                                                 </th>
-                                                <th scope="col" class="dates">
-                                                    <label class="text-muted mb-0">出版时间</label>
-                                                </th>
+
                                                 <th scope="col">
                                                     <label class="text-muted mb-0">书籍名字</label>
                                                 </th>
-                                                <th scope="col" class="text-right">
+                                                <th scope="col" >
                                                     <label class="text-muted mb-0">书籍ISBN</label>
                                                 </th>
 
                                                 <th scope="col">
                                                     <label class="text-muted mb-0">书籍作者</label>
+                                                </th>
+                                                <th scope="col" class="dates">
+                                                    <label class="text-muted mb-0">图书种类</label>
                                                 </th>
                                                 <th scope="col">
                                                     <label class="text-muted mb-0">书架</label>
@@ -309,18 +310,18 @@
                                                 <td th:text="'#'+${book.getBook_id()}">
                                                     1
                                                 </td>
-                                                <td th:text="${book.getPublic_time()}">
-                                                    01 Jan 2021
-                                                </td>
                                                 <td th:text="${book.getName()}">
                                                     水浒传
                                                 </td>
-                                                <td  th:text="${book.getISBN()}" class="text-right">
+                                                <td  th:text="${book.getISBN()}" >
                                                     341232-2132141
                                                 </td>
 
                                                 <td  th:text="${book.getAuthor()}">
                                                     施耐庵
+                                                </td>
+                                                <td th:text="${book.getType()}">
+                                                    玄幻
                                                 </td>
                                                 <td  th:text="${book.getBookshelf_id()}">
                                                     #1211
