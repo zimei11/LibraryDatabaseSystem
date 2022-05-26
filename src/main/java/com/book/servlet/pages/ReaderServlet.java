@@ -1,6 +1,8 @@
 package com.book.servlet.pages;
 
 import com.book.entity.User;
+import com.book.service.ReaderService;
+import com.book.service.impl.ReaderServiceImpl;
 import com.book.utils.ThymeleafUtil;
 import org.thymeleaf.context.Context;
 
@@ -14,6 +16,14 @@ import java.io.IOException;
 @WebServlet("/reader")
 public class ReaderServlet extends HttpServlet
 {
+    ReaderService service;
+
+    @Override
+    public void init() throws ServletException
+    {
+        service=new ReaderServiceImpl();
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
@@ -23,6 +33,7 @@ public class ReaderServlet extends HttpServlet
         Context context = new Context();
         User user=(User)req.getSession().getAttribute("user");
         context.setVariable("nickname",user.getNickname());
+        context.setVariable("reader_list",service.getReaderList());
         ThymeleafUtil.process("reader.html",context,resp.getWriter());
 
 

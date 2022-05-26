@@ -306,7 +306,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr class="white-space-no-wrap">
+                                            <tr th:each="reader:${reader_list}" class="white-space-no-wrap">
                                                 <td class="pr-0 ">
                                                     <div
                                                             class="custom-control custom-checkbox custom-control-inline">
@@ -322,21 +322,21 @@
 
                                                         <div class="data-content">
                                                             <div>
-                                                                        <span class="font-weight-bold">迪爵</span>
+                                                                        <span  th:text="${reader.getName()}" class="font-weight-bold">迪爵</span>
                                                             </div>
-                                                            <p class="m-0 text-secondary small">
+                                                            <p  th:text="${reader.getState()}"  class="m-0 text-secondary small">
                                                                 大三
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td  th:text="${reader.getMail()}" >
                                                     123@qq.com
                                                 </td>
-                                                <td>
+                                                <td  th:text="${reader.getSex()}" >
                                                     男
                                                 </td>
-                                                <td>
+                                                <td  th:text="${reader.getPhone()}" >
                                                     +1 (021) 145-2256
                                                 </td>
                                                 <td>
