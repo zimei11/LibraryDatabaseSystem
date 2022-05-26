@@ -68,12 +68,12 @@ public class BookServiceImpl implements BookService
     }
 
     @Override
-    public void addBook(String name, String ISBN, String type, String author, String publisher, String public_time, float price, int bookshelf_id)
+    public void addBook(String name, String ISBN, String type, String author, String publisher,  int bookshelf_id)
     {
         try(SqlSession sqlSession=MybatisUtil.getSession())
         {
             BookMapper mapper=sqlSession.getMapper((BookMapper.class));
-            mapper.addBook(name, ISBN, type, author, publisher, public_time, price, bookshelf_id);
+            mapper.addBook(name, ISBN, type, author, publisher,  bookshelf_id);
         }
     }
 

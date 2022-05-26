@@ -14,7 +14,7 @@ public class Book
     String author;
     String publisher;
     Date public_time;
-    String price;
+    float price;
     Date library_time;
     int bookshelf_id;
     int state;

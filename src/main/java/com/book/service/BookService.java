@@ -15,7 +15,7 @@ public interface BookService
     List<Book> getBookList();
     void deleteBook(int bid);
     void addBook(String name, String ISBN, String type,
-                 String author, String publisher, String public_time,
-                 float price,int bookshelf_id);
+                 String author, String publisher,
+                int bookshelf_id);
 //    List<Book> getActiveBookList();
 }

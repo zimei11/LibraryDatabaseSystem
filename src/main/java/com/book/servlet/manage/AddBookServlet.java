@@ -38,6 +38,7 @@ public class AddBookServlet extends HttpServlet
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         resp.setCharacterEncoding("utf-8");
+        req.setCharacterEncoding("utf-8");
         resp.setContentType("text/html;charset=utf-8");
 
         String name=req.getParameter("name");
@@ -45,11 +46,11 @@ public class AddBookServlet extends HttpServlet
         String type=req.getParameter("type");
         String author=req.getParameter("author");
         String publisher=req.getParameter("publisher");
-        String public_time=req.getParameter("public_time");
-        float price=Float.parseFloat(req.getParameter("price"));
+
+        //float price=Float.parseFloat(req.getParameter("price"));
         int bookshelf_id=Integer.parseInt(req.getParameter("bookshelf_id"));
-        int state=Integer.parseInt(req.getParameter("state"));
-        service.addBook(name, ISBN, type, author, publisher, public_time, price,  bookshelf_id);
+        //int state=Integer.parseInt(req.getParameter("state"));
+        service.addBook(name, ISBN, type, author, publisher,   bookshelf_id);
         resp.sendRedirect("book");
     }
 }
