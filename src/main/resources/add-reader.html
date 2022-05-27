@@ -263,30 +263,23 @@
                                 </div>
                             </div>
                             <div class="col-md-9">
-                                <form class="row g-3 date-icon-set-modal">
+                                <form method="post" action="add-reader" class="row g-3 date-icon-set-modal">
                                     <div class="col-md-6 mb-3">
                                         <label for="Text1" class="form-label font-weight-bold text-muted text-uppercase">姓名</label>
-                                        <input type="text" class="form-control" id="Text1" placeholder="Enter Full Name">
+                                        <input type="text" class="form-control" id="Text1" placeholder="Enter Full Name" name="name">
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label font-weight-bold text-muted text-uppercase">性别</label><br>
-                                        <div class="form-check form-check-inline">
-                                            <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" id="inlineRadio1" name="customRadio-1" class="custom-control-input">
-                                                <label class="custom-control-label" for="inlineRadio1"> 男 </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" id="inlineRadio2" name="customRadio-1" class="custom-control-input">
-                                                <label class="custom-control-label" for="inlineRadio2"> 女 </label>
-                                            </div>
-                                        </div>
-
+                                        <label for="inputcountry" class="form-label font-weight-bold text-muted text-uppercase">性别</label>
+                                        <select id="inputcountry1" class="form-select form-control choicesjs" name="sex">
+                                            <option class="" selected="">Select Sex</option>
+                                            <option value="男">男</option>
+                                            <option value="女">女</option>
+                                            <option value="其他">其他</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6 mb-3 position-relative">
                                         <label for="Text2" class="form-label font-weight-bold text-muted text-uppercase">生日</label>
-                                        <input type="text" class="form-control vanila-datepicker" id="Text2" name="event_date" placeholder="Enter Birth Day" autocomplete="off">
+                                        <input type="text" class="form-control vanila-datepicker" id="Text2"  placeholder="Enter Birth Day" autocomplete="off">
                                         <span class="search-link">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="" width="20" fill="none" viewbox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
@@ -296,15 +289,15 @@
 
                                     <div class="col-md-6 mb-3">
                                         <label for="Text3" class="form-label font-weight-bold text-muted text-uppercase">电子邮箱</label>
-                                        <input type="text" class="form-control" id="Text3" placeholder="Enter Email">
+                                        <input type="text" class="form-control" id="Text3" placeholder="Enter Email" name="mail">
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="Text4" class="form-label font-weight-bold text-muted text-uppercase">电话</label>
-                                        <input type="text" class="form-control" id="Text4" placeholder="Enter Phone">
+                                        <input type="text" class="form-control" id="Text4" placeholder="Enter Phone" name="phone">
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="inputcountry" class="form-label font-weight-bold text-muted text-uppercase">类别</label>
-                                        <select id="inputcountry" class="form-select form-control choicesjs">
+                                        <select id="inputcountry" class="form-select form-control choicesjs" name="state">
                                             <option class="" selected="">Select type</option>
                                             <option value="大一">大一</option>
                                             <option value="大二">大二</option>
@@ -314,17 +307,20 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="Text5" class="form-label font-weight-bold text-muted text-uppercase">密码</label>
-                                        <input type="password" class="form-control" id="Text5" placeholder="Enter Password">
+                                        <input type="password" class="form-control" id="Text5" placeholder="Enter Password" name="password">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label  class="form-label font-weight-bold text-muted text-uppercase"></label>
+
+                                    </div>
+                                    <div class="d-flex justify-content-end mt-3">
+                                        <button type="submit" class="btn btn-primary">
+                                            提交
+                                        </button>
                                     </div>
 
-
-
                                 </form>
-                                <div class="d-flex justify-content-end mt-3">
-                                    <button class="btn btn-primary">
-                                        提交
-                                    </button>
-                                </div>
+
                             </div>
                         </div>
                     </div>

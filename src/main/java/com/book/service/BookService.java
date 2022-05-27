@@ -17,5 +17,6 @@ public interface BookService
     void addBook(String name, String ISBN, String type,
                  String author, String publisher,
                 int bookshelf_id);
+
 //    List<Book> getActiveBookList();
 }

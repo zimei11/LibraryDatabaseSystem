@@ -1,8 +1,10 @@
 package com.book.service.impl;
 
 import com.book.dao.BookMapper;
+import com.book.dao.ReaderMapper;
 import com.book.dao.UserMapper;
 import com.book.entity.Borrow;
+import com.book.entity.Reader;
 import com.book.entity.User;
 import com.book.entity.Book;
 import com.book.service.BookService;
@@ -76,6 +78,8 @@ public class BookServiceImpl implements BookService
             mapper.addBook(name, ISBN, type, author, publisher,  bookshelf_id);
         }
     }
+
+
 
     //看哪本书被节约了，过滤一下
 //    @Override

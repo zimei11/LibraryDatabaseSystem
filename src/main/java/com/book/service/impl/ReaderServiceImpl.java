@@ -8,6 +8,7 @@ import com.book.service.ReaderService;
 import com.book.utils.MybatisUtil;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.Date;
 import java.util.List;
 
 public class ReaderServiceImpl implements ReaderService
@@ -29,6 +30,15 @@ public class ReaderServiceImpl implements ReaderService
         {
             ReaderMapper mapper=sqlSession.getMapper((ReaderMapper.class));
             mapper.deleteReader(mail);
+        }
+    }
+    @Override
+    public void addReader(String mail, String password, String name, String sex, String phone, String state)
+    {
+        try(SqlSession sqlSession=MybatisUtil.getSession())
+        {
+            ReaderMapper mapper=sqlSession.getMapper((ReaderMapper.class));
+            mapper.addReader(mail,password,name,sex,phone,state);
         }
     }
 }
