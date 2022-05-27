@@ -1,5 +1,6 @@
 package com.book.service.impl;
 
+import com.book.dao.BookMapper;
 import com.book.dao.ReaderMapper;
 import com.book.dao.ViewMapper;
 import com.book.entity.Reader;
@@ -18,6 +19,16 @@ public class ReaderServiceImpl implements ReaderService
         {
             ReaderMapper mapper=sqlSession.getMapper(ReaderMapper.class);
             return mapper.getReaderList();
+        }
+    }
+
+    @Override
+    public void deleteReader(String mail)
+    {
+        try(SqlSession sqlSession=MybatisUtil.getSession())
+        {
+            ReaderMapper mapper=sqlSession.getMapper((ReaderMapper.class));
+            mapper.deleteReader(mail);
         }
     }
 }
