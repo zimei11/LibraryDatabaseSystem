@@ -4,7 +4,6 @@ import com.book.entity.Borrow;
 import  com.book.entity.Book;
 import org.apache.ibatis.annotations.*;
 
-import java.util.Date;
 import java.util.List;
 
 public interface BookMapper
@@ -18,7 +17,7 @@ public interface BookMapper
                     @Result(column = "return_time", property = "return_time")
             }
     )
-    @Select("select * from borrow ,reader ,book where borrow.bid=book.bid and reader.mail=borrow.mail and return_time is null")
+    @Select("select * from borrow ,reader ,book where borrow.bid=book.bid and reader.mail=borrow.mail and return_time is null order by borrow_time desc")
     List<Borrow> getBorrowList();
 
     @Insert("insert into borrow(id,mail,bid,borrow_time,return_time) values(null,#{mail},#{book_id},now(),null)")
@@ -36,7 +35,7 @@ public interface BookMapper
                     @Result(column = "bid", property = "book_id"),
             }
     )
-    @Select("select * from book")
+    @Select("select * from book order by library_time desc")
     List<Book> getBookList();
 
     @Delete("delete from book where bid=#{bid}")

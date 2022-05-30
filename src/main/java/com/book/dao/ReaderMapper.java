@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface ReaderMapper
 {
-    @Select("select * from reader")
+    @Select("select * from reader order by open_time desc")
     List<Reader> getReaderList();
 
     @Delete("delete from reader where mail=#{mail}")
