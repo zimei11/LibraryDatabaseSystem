@@ -30,22 +30,27 @@ public class BookServiceImpl implements BookService
     }
 
     @Override
-    public void returnBook(String id)
+    public void returnBook(int id)
     {
-        try(SqlSession sqlSession=MybatisUtil.getSession())
+        try(SqlSession sqlSession=MybatisUtil.getSession(false))
         {
             BookMapper mapper=sqlSession.getMapper((BookMapper.class));
             mapper.updateBorrow(id);
+            int t=mapper.getReturnBookId(id);
+            mapper.updateBookState(t);
+            sqlSession.commit();
         }
     }
 
     @Override
     public void addBorrow(String mail,int book_id)
     {
-        try(SqlSession sqlSession=MybatisUtil.getSession())
+        try(SqlSession sqlSession=MybatisUtil.getSession(false))
         {
             BookMapper mapper=sqlSession.getMapper(BookMapper.class);
             mapper.addBorrow(mail,book_id);
+            mapper.updateBookState(book_id);
+            sqlSession.commit();
         }
     }
 

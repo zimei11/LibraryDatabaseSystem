@@ -18,7 +18,11 @@ public class MybatisUtil {
         }
     }
 
-
+    //传参可以开启事务
+    public static SqlSession getSession(boolean flag){
+        return factory.openSession(flag);
+    }
+    //默认关闭事务
     public static SqlSession getSession(){
         return factory.openSession(true);
     }

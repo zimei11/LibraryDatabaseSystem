@@ -26,7 +26,7 @@ public class ReturnServlet extends HttpServlet
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("text/html;charset=utf-8");
 
-        String id=req.getParameter("id");
+        int id=Integer.parseInt(req.getParameter("id"));
         service.returnBook(id);
         resp.sendRedirect("index#dropdownMenuButton-customer");
     }
