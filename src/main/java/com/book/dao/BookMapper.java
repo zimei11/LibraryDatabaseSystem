@@ -54,4 +54,12 @@ public interface BookMapper
     //查阅当前归还图书id
     @Select("select bid from borrow where id=#{id}")
     int getReturnBookId(int id);
+
+    @Results(
+            {
+                    @Result(column = "bid", property = "book_id"),
+            }
+    )
+    @Select("select * from borrow ,reader ,book where borrow.bid=book.bid and reader.mail=borrow.mail and return_time is null and reader.mail=#{mail} order by borrow_time desc")
+    List<Borrow> getBorrowListByType(@Param("mail") String mail);
 }

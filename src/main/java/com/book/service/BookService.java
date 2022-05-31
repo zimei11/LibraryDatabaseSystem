@@ -9,6 +9,7 @@ import java.util.List;
 public interface BookService
 {
     List<Borrow> getBorrowList();
+    List<Borrow> getBorrowListByType(String mail);
     void returnBook(int id);
     void addBorrow(String mail,int book_id);
     List<Book> getBookList();

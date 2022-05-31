@@ -27,6 +27,16 @@ public class BookServiceImpl implements BookService
     }
 
     @Override
+    public List<Borrow> getBorrowListByType(String mail)
+    {
+        try(SqlSession sqlSession=MybatisUtil.getSession())
+        {
+            BookMapper mapper=sqlSession.getMapper((BookMapper.class));
+            return mapper.getBorrowListByType(mail);
+        }
+    }
+
+    @Override
     public void returnBook(int id)
     {
         try(SqlSession sqlSession=MybatisUtil.getSession(false))

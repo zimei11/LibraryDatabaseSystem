@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Objects;
 
 @WebServlet("/index")
 public class IndexServlet extends HttpServlet
@@ -38,7 +39,10 @@ public class IndexServlet extends HttpServlet
         User user=(User)req.getSession().getAttribute("user");
         context.setVariable("nickname",user.getNickname());
         context.setVariable("email",user.getMail());
-        context.setVariable("borrow_list",service.getBorrowList());
+        if(Objects.equals(user.getMail(), "admin@qq.com"))
+            context.setVariable("borrow_list",service.getBorrowList());
+        else
+            context.setVariable("borrow_list",service.getBorrowListByType(user.getMail()));
         context.setVariable("book_rank",service1.getViewList());
         ThymeleafUtil.process("index.html",context,resp.getWriter());
 
