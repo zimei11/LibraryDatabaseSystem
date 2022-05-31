@@ -31,6 +31,7 @@ public class BookServlet extends HttpServlet
 
         Context context = new Context();
         User user=(User)req.getSession().getAttribute("user");
+        context.setVariable("email",user.getMail());
         context.setVariable("nickname",user.getNickname());
         context.setVariable("book_list",service.getBookList());
         ThymeleafUtil.process("book.html",context,resp.getWriter());

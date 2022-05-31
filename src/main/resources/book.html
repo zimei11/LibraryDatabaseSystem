@@ -55,7 +55,7 @@
                     <li class="px-3 pt-3 pb-2 ">
                         <span class="text-uppercase small font-weight-bold">Application</span>
                     </li>
-                    <li class=" sidebar-layout">
+                    <li th:if="${email}=='admin@qq.com'" class=" sidebar-layout">
                         <a href="reader " class="svg-icon ">
                             <i class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24"
@@ -240,7 +240,7 @@
                                             </a>
                                         </div>
                                     </form>
-                                    <a href="add-book"
+                                    <a th:if="${email}=='admin@qq.com'" href="add-book"
                                        class="btn btn-primary position-relative d-flex align-items-center justify-content-between">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" width="20" fill="none"
                                              viewbox="0 0 24 24" stroke="currentColor">
@@ -311,7 +311,7 @@
                                                 <th scope="col">
                                                     <label class="text-muted mb-0">状态</label>
                                                 </th>
-                                                <th scope="col" class="text-right">
+                                                <th th:if="${email}=='admin@qq.com'" scope="col" class="text-right">
                                                     <span class="text-muted">删除</span>
                                                 </th>
                                             </tr>
@@ -370,7 +370,7 @@
                                                         </small>借阅中
                                                     </p>
                                                 </td>
-                                                <td>
+                                                <td th:if="${email}=='admin@qq.com'">
                                                     <div class="d-flex justify-content-end align-items-center">
 
                                                         <a class="" data-toggle="tooltip" data-placement="top"

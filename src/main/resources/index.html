@@ -56,7 +56,7 @@
                     <li class="px-3 pt-3 pb-2 ">
                         <span class="text-uppercase small font-weight-bold">Application</span>
                     </li>
-                    <li class=" sidebar-layout" >
+                    <li class=" sidebar-layout" th:if="${email}=='admin@qq.com'">
                         <a href="reader " class="svg-icon ">
                             <i class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewbox="0 0 24 24"
@@ -388,7 +388,7 @@
                             <div class="header-title">
                                 <h4 class="card-title">借阅记录</h4>
                             </div>
-                            <div class="card-header-toolbar d-flex align-items-center">
+                            <div th:if="${email}=='admin@qq.com'" class="card-header-toolbar d-flex align-items-center">
                                 <div class="dropdown">
                                     <a href="add-borrow" class="text-muted pl-3" id="dropdownMenuButton-customer"
                                        data-toggle="tooltip" aria-haspopup="true" aria-expanded="false">
@@ -412,7 +412,7 @@
                                         <th scope="col">读者邮箱</th>
                                         <th scope="col">书本编号</th>
                                         <th scope="col">借阅时间</th>
-                                        <th scope="col" class="text-secondary mx-4">归还</th>
+                                        <th th:if="${email}=='admin@qq.com'" scope="col" class="text-secondary mx-4">归还</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -420,7 +420,7 @@
                                         <td th:text="${borrow.getMail()}">admin@qq.com</td>
                                         <td th:text="'#'+${borrow.getBook_id()}">1</td>
                                         <td th:text="${borrow.getBorrow_time()}">2022.5.25</td>
-                                        <td class="relative">
+                                        <td th:if="${email}=='admin@qq.com'" class="relative">
                                             <a class="action-btn" data-toggle="tooltip" data-placement="top"
                                                title="" data-original-title="Edit"
                                                th:href="'return-book?id='+${borrow.getId()}">
