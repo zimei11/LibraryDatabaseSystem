@@ -275,7 +275,19 @@
                                         <table class="table data-table mb-0">
                                             <thead class="table-color-heading">
                                             <tr class="text-light" >
-
+                                                <th scope="col" class="pr-0 w-01">
+                                                    <div
+                                                            class="d-flex justify-content-start align-items-end mb-1 ">
+                                                        <div
+                                                                class="custom-control custom-checkbox custom-control-inline">
+                                                            <input type="checkbox"
+                                                                   class="custom-control-input m-0"
+                                                                   id="customCheck1">
+                                                            <label class="custom-control-label"
+                                                                   for="customCheck1"></label>
+                                                        </div>
+                                                    </div>
+                                                </th>
                                                 <th scope="col">
                                                     <label class="text-muted m-0">编号</label>
                                                 </th>
@@ -306,7 +318,15 @@
                                             </thead>
                                             <tbody>
                                             <tr th:each="book:${book_list}" class="white-space-no-wrap">
-
+                                                <td class="pr-0 ">
+                                                    <div
+                                                            class="custom-control custom-checkbox custom-control-inline">
+                                                        <input type="checkbox" class="custom-control-input m-0"
+                                                               id="customCheck">
+                                                        <label class="custom-control-label"
+                                                               for="customCheck"></label>
+                                                    </div>
+                                                </td>
                                                 <td th:text="'#'+${book.getBook_id()}">
                                                     1
                                                 </td>
