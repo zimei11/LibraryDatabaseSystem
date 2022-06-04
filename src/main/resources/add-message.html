@@ -9,6 +9,11 @@
     <link rel="icon" href="https://img.zimei.xyz/favicon.ico">
     <link rel="stylesheet" href="static/css/backend-plugin.min.css">
     <link rel="stylesheet" href="static/css/backend.css">
+    <script>
+        function myPopupsFunction(){
+            document.getElementById("pop-ups").innerHTML="成功提交！2秒后自动跳转";
+        }
+    </script>
 </head>
   <body class=" color-light ">
     <!-- loader Start -->
@@ -97,13 +102,15 @@
                         <h4 class="card-title">留言</h4>
                      </div>
                   </div>
-                  <div class="card-body" method="post" action="add-message">
-                     <div class="form-group mb-0">
+                  <div class="card-body" >
+                     <form class="form-group mb-0" method="post" action="add-message">
                          <label for="exampleFormControlTextarea1">😊您可以在此处提出您宝贵的意见，<br/>我们看到后会第一时间回复信息到您帐号的默认邮箱📪。</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                     </div>
-                      <br/>
-                      <button type="submit" class="btn btn-primary mr-2">提交</button>
+                        <textarea type="text" placeholder="Enter Your Message" name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                         <br/>
+                         <button onclick="myPopupsFunction()" type="submit" class="btn btn-primary mr-2">提交</button>
+                         <p id="pop-ups"></p>
+                     </form>
+
                   </div>
 
                </div>
