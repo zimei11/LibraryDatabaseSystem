@@ -49,7 +49,7 @@
                                 </svg>
                             </i>
                             <span class="ml-2">首页</span>
-                            <p class="mb-0 w-10 badge badge-pill badge-primary">6</p>
+
                         </a>
                     </li>
                     <li class="px-3 pt-3 pb-2 ">
@@ -103,7 +103,7 @@
                                     <form class="mr-3 position-relative">
                                         <div class="form-group mb-0">
                                             <input type="text" class="form-control" id="exampleInputText"
-                                                   placeholder="Search Order">
+                                                   placeholder="Search Book">
                                             <a class="search-link" href="#">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="" width="20"
                                                      fill="none" viewbox="0 0 24 24" stroke="currentColor">
@@ -247,19 +247,36 @@
                                                 <td th:if="${email}=='admin@qq.com'">
                                                     <div class="d-flex justify-content-end align-items-center">
 
-                                                        <a class="" data-toggle="tooltip" data-placement="top"
-                                                           title="" data-original-title="Edit" th:href="'delete-book?bid='+${book.getBook_id()}">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="text-secondary" width="20" fill="none"
-                                                                 viewbox="0 0 24 24" stroke="currentColor">
+                                                        <a class="badge bg-danger" data-toggle="tooltip"
+                                                           data-placement="top" title=""
+                                                           data-original-title="Delete" th:href="'delete-book?bid='+${book.getBook_id()}">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                                                 fill="none" viewbox="0 0 24 24"
+                                                                 stroke="currentColor">
                                                                 <path stroke-linecap="round"
                                                                       stroke-linejoin="round" stroke-width="2"
-                                                                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+                                                                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
                                                                 </path>
                                                             </svg>
                                                         </a>
                                                     </div>
                                                 </td>
+<!--                                                <td th:if="${email}=='admin@qq.com'">-->
+<!--                                                    <div class="d-flex justify-content-end align-items-center">-->
+
+<!--                                                        <a class="" data-toggle="tooltip" data-placement="top"-->
+<!--                                                           title="" data-original-title="Edit" th:href="'delete-book?bid='+${book.getBook_id()}">-->
+<!--                                                            <svg xmlns="http://www.w3.org/2000/svg"-->
+<!--                                                                 class="text-secondary" width="20" fill="none"-->
+<!--                                                                 viewbox="0 0 24 24" stroke="currentColor">-->
+<!--                                                                <path stroke-linecap="round"-->
+<!--                                                                      stroke-linejoin="round" stroke-width="2"-->
+<!--                                                                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">-->
+<!--                                                                </path>-->
+<!--                                                            </svg>-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+<!--                                                </td>-->
                                             </tr>
 
                                             </tbody>
