@@ -121,8 +121,8 @@
                                         <h5 class="font-weight-bold">留言列表</h5>
 
                                     </div>
-                                    <div class="table-responsive">
-                                        <table class="table data-table mb-0">
+                                    <div class="table-responsive" >
+                                        <table class="table data-table mb-0" >
                                             <thead class="table-color-heading">
                                             <tr class="text-light" >
                                                 <th scope="col" class="pr-0 w-01">
@@ -178,10 +178,18 @@
                                                     2022.3.14 04:04:04
                                                 </td>
 
-                                                <td  th:text="${message.getContent()}">
-                                                    施耐庵是一本好书！施耐庵是一本好书！施耐庵是一本好书！施耐庵是一本好书！施耐庵是一本好书！施耐庵是一本好书！
-                                                </td>
+                                                <td>
+                                                    <div class="card">
 
+                                                        <div class="card-body" >
+                                                            <form class="form-group mb-0" >
+                                                                <textarea type="text" th:placeholder="${message.getContent()}" name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                            </form>
+
+                                                        </div>
+
+                                                    </div>
+                                                </td>
 
                                                 <td >
                                                     <div class="d-flex justify-content-end align-items-center">
