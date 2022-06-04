@@ -12,6 +12,6 @@ public interface MessageMapper
     @Select("select * from message")
     List<Message> getMessageList();
 
-    @Insert("insert into message(content,mail) values(#{content},#{mail})")
+    @Insert("insert into message(content,mail,time) values(#{content},#{mail},now())")
     void addMessage(@Param("content") String content,@Param("mail") String mail);
 }
