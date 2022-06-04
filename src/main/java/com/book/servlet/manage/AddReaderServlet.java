@@ -1,5 +1,6 @@
 package com.book.servlet.manage;
 
+import com.book.entity.User;
 import com.book.service.ReaderService;
 import com.book.service.impl.ReaderServiceImpl;
 import com.book.utils.ThymeleafUtil;
@@ -30,6 +31,9 @@ public class AddReaderServlet extends HttpServlet
         resp.setContentType("text/html;charset=utf-8");
 
         Context context = new Context();
+        User user=(User)req.getSession().getAttribute("user");
+        context.setVariable("email",user.getMail());
+        context.setVariable("nickname",user.getNickname());
         ThymeleafUtil.process("add-reader.html",context,resp.getWriter());
     }
 
