@@ -1,8 +1,8 @@
 package com.book.servlet.pages;
 
 import com.book.entity.User;
-import com.book.service.ReaderService;
-import com.book.service.impl.ReaderServiceImpl;
+import com.book.service.MessageService;
+import com.book.service.impl.MessageServiceImpl;
 import com.book.utils.ThymeleafUtil;
 import org.thymeleaf.context.Context;
 
@@ -13,15 +13,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/reader")
-public class ReaderServlet extends HttpServlet
+@WebServlet("/message")
+public class MessageServlet extends HttpServlet
 {
-    ReaderService service;
+    MessageService service;
 
     @Override
     public void init() throws ServletException
     {
-        service=new ReaderServiceImpl();
+        service=new MessageServiceImpl();
     }
 
     @Override
@@ -32,11 +32,9 @@ public class ReaderServlet extends HttpServlet
 
         Context context = new Context();
         User user=(User)req.getSession().getAttribute("user");
-        context.setVariable("nickname",user.getNickname());
         context.setVariable("email",user.getMail());
-        context.setVariable("reader_list",service.getReaderList());
-        ThymeleafUtil.process("reader.html",context,resp.getWriter());
-
-
+        context.setVariable("nickname",user.getNickname());
+        context.setVariable("message_list",service.getMessageList());
+        ThymeleafUtil.process("message.html",context,resp.getWriter());
     }
 }
