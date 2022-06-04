@@ -1,6 +1,8 @@
 package com.book.servlet.manage;
 
 import com.book.entity.User;
+import com.book.service.MessageService;
+import com.book.service.impl.MessageServiceImpl;
 import com.book.utils.ThymeleafUtil;
 import org.thymeleaf.context.Context;
 
@@ -12,8 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/add-message")
-public class AddMessage extends HttpServlet
+public class AddMessageServlet extends HttpServlet
 {
+    MessageService service;
+    @Override
+    public void init() throws ServletException
+    {
+        service=new MessageServiceImpl();
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
@@ -34,6 +43,10 @@ public class AddMessage extends HttpServlet
         req.setCharacterEncoding("utf-8");
         resp.setContentType("text/html;charset=utf-8");
 
+        String message=req.getParameter("message");
+        service.addMessage(message);
+
+        //延迟2秒，提示提交成功
         try
         {
             Thread.sleep (2000);
