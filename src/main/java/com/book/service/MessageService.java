@@ -8,5 +8,5 @@ public interface MessageService
 {
     List<Message> getMessageList();
 
-    void addMessage(String content);
+    void addMessage(String content,String mail);
 }

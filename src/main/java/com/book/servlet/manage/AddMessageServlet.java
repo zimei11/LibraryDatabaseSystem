@@ -44,7 +44,9 @@ public class AddMessageServlet extends HttpServlet
         resp.setContentType("text/html;charset=utf-8");
 
         String message=req.getParameter("message");
-        service.addMessage(message);
+
+        User user=(User)req.getSession().getAttribute("user");
+        service.addMessage(message,user.getMail());
 
         //延迟2秒，提示提交成功
         try

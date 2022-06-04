@@ -22,12 +22,12 @@ public class MessageServiceImpl implements MessageService
     }
 
     @Override
-    public void addMessage(String content)
+    public void addMessage(String content,String mail)
     {
         try(SqlSession sqlSession=MybatisUtil.getSession())
         {
             MessageMapper mapper=sqlSession.getMapper(MessageMapper.class);
-            mapper.addMessage(content);
+            mapper.addMessage(content,mail);
         }
     }
 }
