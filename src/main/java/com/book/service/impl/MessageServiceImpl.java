@@ -1,6 +1,5 @@
 package com.book.service.impl;
 
-import com.book.dao.BookMapper;
 import com.book.dao.MessageMapper;
 import com.book.entity.Message;
 import com.book.service.MessageService;
@@ -28,6 +27,16 @@ public class MessageServiceImpl implements MessageService
         {
             MessageMapper mapper=sqlSession.getMapper(MessageMapper.class);
             mapper.addMessage(content,mail);
+        }
+    }
+
+    @Override
+    public void deleteMessage(int mid)
+    {
+        try(SqlSession sqlSession=MybatisUtil.getSession())
+        {
+            MessageMapper mapper=sqlSession.getMapper((MessageMapper.class));
+            mapper.deleteMessage(mid);
         }
     }
 }

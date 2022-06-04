@@ -9,4 +9,6 @@ public interface MessageService
     List<Message> getMessageList();
 
     void addMessage(String content,String mail);
+
+    void deleteMessage(int mid);
 }
