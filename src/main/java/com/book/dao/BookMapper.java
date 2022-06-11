@@ -17,6 +17,7 @@ public interface BookMapper
                     @Result(column = "return_time", property = "return_time")
             }
     )
+    //@Select("select * from borrow join reader on  reader.mail=borrow.mail join on book borrow.bid=book.bid where   return_time is null order by borrow_time desc")
     @Select("select * from borrow ,reader ,book where borrow.bid=book.bid and reader.mail=borrow.mail and return_time is null order by borrow_time desc")
     List<Borrow> getBorrowList();
 
