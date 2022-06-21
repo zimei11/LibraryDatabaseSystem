@@ -23,6 +23,8 @@ IntelliJ IDEA Ultimate导入项目，系统使用Maven进行项目管理，tomca
 
 应用程序上下文改为/book_manager，对应URL http://localhost:8083/book_manager/auth-login
 
+mybatis-config.xml 在目录src/main/resources/ 下，请按需自行修改。
+
 管理员登录
 账号:admin@qq.com
 密码123456
