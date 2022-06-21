@@ -10,14 +10,9 @@
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
 
 <!--                测试-->
-                <property name="url" value="jdbc:mysql://120.48.20.150:3306/book_manage"/>
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/book_manage"/>
                 <property name="username" value="root"/>
-                <property name="password" value="98d92c62d0c49974"/>
-
-<!--                部署-->
-<!--                <property name="url" value="jdbc:mysql://101.132.139.127:3306/book_manage"/>-->
-<!--                <property name="username" value="root"/>-->
-<!--                <property name="password" value="RYYTeEsfcMM4EDDB"/>-->
+                <property name="password" value="123456"/>
 
                 <!--是否启用侦测查询。若开启，也必须使用一个可执行的 SQL 语句设置 poolPingQuery 属性（最好是一个非常快的 SQL），默认值：false。 -->
                 <property name="poolPingEnabled" value="true" />
