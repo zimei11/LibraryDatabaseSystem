@@ -17,9 +17,19 @@
 
 ## 部署方式
 
+在根目录下找到**book_manage.sql**文件，将数据库导入到MySQL 8.0.24及以上版本中（数据库使用了CHECK约束，低版本下将失效）
+
 IntelliJ IDEA Ultimate导入项目，系统使用Maven进行项目管理，tomcat为9+版本。
 
 应用程序上下文改为/book_manager，对应URL http://localhost:8083/book_manager/auth-login
+
+管理员登录
+账号:admin@qq.com
+密码123456
+
+读者登录
+账号:123@qq.com
+密码123456
 
 ## 需求分析
 
