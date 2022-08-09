@@ -67,13 +67,13 @@ mybatis-config.xml 在目录src/main/resources/ 下，请按需自行修改。
 
 开发过程中使用了分层架构模式（Layered），将系统分为表现层（UI）、业务逻辑层（BLL）以及数据访问层（DAL），三层架构模式。
 
-![image-20220621213224922](http://img.zimei.xyz/202206212132046.png)
+![image-20220621213224922](http://img.zimei.fun/202206212132046.png)
 
 ## DB概念设计
 
 如下图所示为图书馆数据系统的全局E-R图。每一本书即使书号相同，但是图书编号一定不同。 而一个读者可以在不同时间反复借阅同一本书，因此读者编号与书籍编号并不能唯一标识每一次借阅，需要增加借阅编号属性来做主键。
 
-![img](http://img.zimei.xyz/202206212140805.png)
+![img](http://img.zimei.fun/202206212140805.png)
 
 ## 技术栈
 
@@ -102,13 +102,13 @@ mybatis-config.xml 在目录src/main/resources/ 下，请按需自行修改。
 
 ## 运行效果截图
 
-![image-20220621214219419](http://img.zimei.xyz/202206212142481.png)
+![image-20220621214219419](http://img.zimei.fun/202206212142481.png)
 
-<img src="http://img.zimei.xyz/202206212141485.png" alt="img" style="zoom:80%;" />
+<img src="http://img.zimei.fun/202206212141485.png" alt="img" style="zoom:80%;" />
 
-<img src="http://img.zimei.xyz/202206212141649.png" alt="img" style="zoom:80%;" />
+<img src="http://img.zimei.fun/202206212141649.png" alt="img" style="zoom:80%;" />
 
-<img src="http://img.zimei.xyz/202206212142538.png" alt="img" style="zoom:80%;" />
+<img src="http://img.zimei.fun/202206212142538.png" alt="img" style="zoom:80%;" />
 
 ## 总结
 
